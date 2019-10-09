@@ -1,0 +1,216 @@
+{
+    "hallName": "Hall One",
+    "rows": [
+        {
+            "_id": "R01",
+            "rowNumber": 1,
+            "skip": false,
+            "places": [
+                {
+                    "_id": "P01",
+                    "placeNumber": 1,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 1,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P02",
+                    "placeNumber": 2,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P02",
+                    "placeNumber": 3,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                }
+            ]
+        },
+        {
+            "_id": "R02",
+            "rowNumber": 2,
+            "skip": true,
+            "places": [
+                {
+                    "_id": "P04",
+                    "placeNumber": 1,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P05",
+                    "placeNumber": 2,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P06",
+                    "placeNumber": 3,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P07",
+                    "placeNumber": 4,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P08",
+                    "placeNumber": 5,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                }
+            ]
+        },
+        {
+            "_id": "R03",
+            "rowNumber": 3,
+            "skip": false,
+            "places": [
+                {
+                    "_id": "P09",
+                    "placeNumber": 1,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P10",
+                    "placeNumber": 2,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                },
+                {
+                    "_id": "P11",
+                    "placeNumber": 3,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                }
+            ]
+        },
+        {
+            "_id": "R04",
+            "rowNumber": 4,
+            "skip": false,
+            "places": [
+                {
+                    "_id": "P12",
+                    "placeNumber": 1,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 2,
+                    "span": 1,
+                    "type": "chair",
+                    "price": "10$"
+                }
+            ]
+        },
+        {
+            "_id": "R05",
+            "rowNumber": 5,
+            "skip": false,
+            "places": [
+                {
+                    "_id": "P13",
+                    "placeNumber": 1,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 1,
+                    "span": 2,
+                    "type": "sofa",
+                    "price": "15$"
+                },
+                {
+                    "_id": "P14",
+                    "placeNumber": 2,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 2,
+                    "type": "chair",
+                    "price": "15$"
+                },
+                {
+                    "_id": "P15",
+                    "placeNumber": 3,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 2,
+                    "type": "sofa",
+                    "price": "15$"
+                },
+                {
+                    "_id": "P16",
+                    "placeNumber": 4,
+                    "isReserved": true,
+                    "isOccupied": false,
+                    "isSelected": false,
+                    "skip": 0,
+                    "span": 2,
+                    "type": "sofa",
+                    "price": "15$"
+                }
+            ]
+        }
+    ]
+}

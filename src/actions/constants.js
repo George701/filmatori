@@ -1,0 +1,1 @@
+export const LOAD_HALL = 'LOAD_HALL';
