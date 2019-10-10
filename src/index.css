@@ -103,6 +103,11 @@
     background-color: #333333;
 }
 
+.place-body:active{
+    transition: all .1s ease-out;
+    padding: 0;
+}
+
 .place-empty:hover{
     transition: all 0.5s ease-out;
     background-color: #999999;
@@ -111,4 +116,43 @@
 .place-reserved:hover{
     transition: all 0.5s ease-out;
     background-color: #ffae00;
+}
+
+.place-sold:hover{
+    transition: all 0.5s ease-out;
+}
+
+/*
+------------------------------------------
+                Portability
+------------------------------------------
+*/
+
+@media screen and (max-width: 1030px){
+    .place-body .tooltiptext {
+        width: 15vw;
+        font-size: .7rem;
+        padding: .2rem .6rem;
+        bottom: 1rem;
+        left: 1rem;
+        border-radius: .5rem .5rem .5rem .1rem;
+    }
+
+    .hall-main{
+        width: 70vw;
+    }
+
+    .hall-places {
+        padding: 1rem .5rem .5rem .5rem;
+    }
+
+    .place-chair{
+        padding: .2rem .6rem;
+        margin: 0 .2rem;
+    }
+    
+    .place-sofa{
+        padding: .2rem 1.2rem;
+        margin: 0 .2rem;
+    }
 }

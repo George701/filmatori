@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { reservePlace } from '../../../actions/cinema';
+import { reservePlace, occupyPlace, setEmptyPlace } from '../../../actions/cinema';
 
-const Place = ({ reservePlace, place: { _id, skip, placeNumber, isReserved, isOccupied, type, price }, row_id }) => {
+const Place = ({ reservePlace, occupyPlace, setEmptyPlace, place: { _id, skip, placeNumber, isReserved, isOccupied, type, price }, rowId, rowNumber }) => {
 
-    // const missinSpots = param => [...Array(param)].map((e, i) => <span className="place-space" key={i}>{' '}</span>)
     const placeClasses = () => {
         let credentials = '';
 
@@ -18,14 +17,18 @@ const Place = ({ reservePlace, place: { _id, skip, placeNumber, isReserved, isOc
 
     const onClick = e => {
         if (!isOccupied) {
-            // console.log('not reserved')
-            !isReserved ? reservePlace(e.target.id, row_id) : console.log('Place is reserved but not sold');
+            !isReserved ? reservePlace(e.target.id, rowId)
+                :
+                window.confirm(`Row № ${rowNumber} place № ${placeNumber} is booked already, but it is not sold yet. Do you wish to buy it for ${price}?`)
+                    ?
+                    occupyPlace(e.target.id, rowId)
+                    :
+                    setEmptyPlace(e.target.id, rowId);
         }
     }
 
     return (
         <Fragment>
-            {/* {skip !== 0 && missinSpots(skip)} */}
             <span className={`place-body ${placeClasses()}`} onClick={e => onClick(e)} id={_id}>
                 {placeNumber}
                 {!isOccupied && !isReserved && <div className="tooltiptext">
@@ -39,7 +42,9 @@ const Place = ({ reservePlace, place: { _id, skip, placeNumber, isReserved, isOc
 
 Place.propTypes = {
     place: PropTypes.object.isRequired,
-    reservePlace: PropTypes.func.isRequired
+    reservePlace: PropTypes.func.isRequired,
+    occupyPlace: PropTypes.func.isRequired,
+    setEmptyPlace: PropTypes.func.isRequired,
 }
 
-export default connect(null, { reservePlace })(Place)
+export default connect(null, { reservePlace, occupyPlace, setEmptyPlace })(Place)

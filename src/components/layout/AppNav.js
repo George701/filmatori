@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Collapse,
     Navbar,
@@ -11,14 +11,22 @@ import {
 } from 'reactstrap';
 
 const AppNav = () => {
+    const [navState, setNavState] = useState({
+        isOpen: false
+    });
+
+    const { isOpen } = navState;
+
+    const toggle = () => setNavState({ isOpen: !isOpen });
+
     return (
         <Navbar color="dark" dark expand="sm" className="mb-5">
             <Container>
                 <NavbarBrand href="/">
                     <h4 className="brand-color">FILMATORI</h4>
                 </NavbarBrand>
-                <NavbarToggler />
-                <Collapse navbar>
+                <NavbarToggler onClick={() => toggle()} />
+                <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
                             <NavLink href='/hall'>
@@ -26,8 +34,8 @@ const AppNav = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href='/op-2'>
-                                Opt 2
+                            <NavLink href='https://github.com/George701/filmatori'>
+                                Repo
                             </NavLink>
                         </NavItem>
                     </Nav>
@@ -35,7 +43,7 @@ const AppNav = () => {
             </Container>
         </Navbar>
     )
-}
+};
 
 
 export default AppNav;

@@ -5,7 +5,7 @@ import Place from '../Place';
 const Row = ({ row: { _id, rowNumber, skip, places } }) => {
 
     const generateRow = places.map(place => (
-        <Place key={place._id} place={place} row_id={_id} />
+        <Place key={place._id} place={place} rowId={_id} rowNumber={rowNumber} />
     ));
 
     return (

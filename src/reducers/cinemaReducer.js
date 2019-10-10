@@ -1,62 +1,103 @@
-import { LOAD_HALL, RESERVE_PLACE } from '../actions/constants';
+import { LOAD_HALL, RESERVE_PLACE, OCCUPY_PLACE, SET_PLACE_EMPTY } from '../actions/constants';
 
 const initialState = {
     loading: true,
-    hall: {}
+    hall: {
+        hallName: '',
+        rows: []
+    }
 }
 
 export default (state = initialState, action) => {
     const { type, payload } = action;
+    const { hall } = state;
 
     switch (type) {
         case LOAD_HALL:
             return {
                 ...state,
-                // #TODO rewrite
-                hall: { ...payload },
+                hall: {
+                    hallName: payload.hallName,
+                    rows: [...payload.rows]
+                },
                 loading: false
             };
         case RESERVE_PLACE:
-            // console.log(payload);
-            const { p_id, r_id } = payload;
-            const { hall } = state;
-            console.log(p_id, r_id);
-            console.log(hall.rows.map(row =>
-                row._id === r_id
-                    ?
-                    (
-                        row.places.map(place =>
-                            place._id === p_id
-                                ?
-                                (console.log(place), { isReserved: true, ...place })
-                                :
-                                { ...place }),
-                        { ...row }
-                    )
-                    :
-                    { ...row }
-            ));
             return {
                 ...state,
+                loading: false,
                 hall: {
                     ...hall,
                     rows: hall.rows.map(row =>
-                        row._id === r_id
+                        row._id === payload.r_id
                             ?
-                            (
-                                row.places.map(place =>
-                                    place._id === p_id
+                            {
+                                ...row,
+                                places: row.places.map(place =>
+                                    place._id === payload.p_id
                                         ?
-                                        { isReserved: true, ...place }
-                                        :
-                                        { ...place }),
-                                { ...row }
-                            )
-                            :
-                            { ...row }
+                                        {
+                                            ...place,
+                                            isReserved: true
+                                        }
+                                        : { ...place }
+                                )
+                            }
+                            : { ...row }
                     )
-                },
-                loading: false
+                }
+            };
+        case OCCUPY_PLACE:
+            return {
+                ...state,
+                loading: false,
+                hall: {
+                    ...hall,
+                    rows: hall.rows.map(row =>
+                        row._id === payload.r_id
+                            ?
+                            {
+                                ...row,
+                                places: row.places.map(place =>
+                                    place._id === payload.p_id
+                                        ?
+                                        {
+                                            ...place,
+                                            isReserved: false,
+                                            isOccupied: true
+                                        }
+                                        : { ...place }
+                                )
+                            }
+                            : { ...row }
+                    )
+                }
+            };
+        case SET_PLACE_EMPTY:
+            return {
+                ...state,
+                loading: false,
+                hall: {
+                    ...hall,
+                    rows: hall.rows.map(row =>
+                        row._id === payload.r_id
+                            ?
+                            {
+                                ...row,
+                                places: row.places.map(place =>
+                                    place._id === payload.p_id
+                                        ?
+                                        {
+                                            ...place,
+                                            isReserved: false,
+                                            isOccupied: false
+                                        }
+                                        : { ...place }
+                                )
+                            }
+                            : { ...row }
+                    )
+                }
             };
         default:
             return state;
