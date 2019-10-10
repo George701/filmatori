@@ -1,3 +1,114 @@
 .brand-color{
     color: #ffca28
 };
+
+.place-skip{
+    margin-left: 2rem;
+}
+
+/*Misc*/  
+.place-body .tooltiptext {
+    visibility: hidden;
+    width: 10vw;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: .5rem 1rem;
+    bottom: 2rem;
+    left: 2rem;
+    border-radius: 1.5rem 1.5rem 1.5rem .3rem;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.place-body:hover .tooltiptext {
+    visibility: visible;
+}
+
+/*Hall*/
+.hall-header{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.hall-main{
+    width: 50vw;
+    height: 60vh;
+    margin: 0 auto;
+}
+
+.hall-screen{
+    border-top: .2rem solid #999999;
+    border-radius: 50%;
+    color: #999999;
+    text-align: center;
+    height: 10vh;
+    font-size: 2rem;
+}
+
+.hall-places{
+    height: 50vh;
+    padding: 2rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Row*/
+.row-main{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.row-number{
+    flex:1;
+    font-weight: bold;
+    color: #999999;
+    text-align: center;
+}
+
+.row-places{
+    flex:8;
+}
+
+/*Places*/
+.place-chair{
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+}
+
+.place-sofa{
+    padding: .5rem 2rem;
+    margin: 0 .5rem;
+}
+
+.place-body{
+    position: relative;
+    border-radius: 50%;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.place-empty{
+    background-color: #cccccc;
+}
+
+.place-reserved{
+    background-color: #ffca28;
+}
+
+.place-sold{
+    background-color: #333333;
+}
+
+.place-empty:hover{
+    transition: all 0.5s ease-out;
+    background-color: #999999;
+}
+
+.place-reserved:hover{
+    transition: all 0.5s ease-out;
+    background-color: #ffae00;
+}

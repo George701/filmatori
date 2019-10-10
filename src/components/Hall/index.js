@@ -13,10 +13,10 @@ export const Hall = ({ setHall, cinema: { hall: { hallName, rows }, loading } })
         :
         <Fragment>
             <h1 className='hall-header'>{hallName}</h1>
-            <div>
-                <div>Screen</div>
-                <div>
-                    {rows.map(row => (
+            <div className='hall-main'>
+                <div className='hall-screen'>Screen</div>
+                <div className='hall-places'>
+                    {rows !== undefined && rows.map(row => (
                         <Row key={row._id} row={row} />
                     ))}
                 </div>
