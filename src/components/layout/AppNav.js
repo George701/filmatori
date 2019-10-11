@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from './Logo'
 import {
     Collapse,
     Navbar,
@@ -20,10 +21,14 @@ const AppNav = () => {
     const toggle = () => setNavState({ isOpen: !isOpen });
 
     return (
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar color="dark" dark expand="sm">
             <Container>
                 <NavbarBrand href="/">
-                    <h4 className="brand-color">FILMATORI</h4>
+                    <h4 className="brand-color">
+                        <Logo />
+                        {' '}
+                        FILMATORI
+                        </h4>
                 </NavbarBrand>
                 <NavbarToggler onClick={() => toggle()} />
                 <Collapse isOpen={isOpen} navbar>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reservePlace, occupyPlace, setEmptyPlace } from '../../../actions/cinema';
 
-const Place = ({ reservePlace, occupyPlace, setEmptyPlace, place: { _id, skip, placeNumber, isReserved, isOccupied, type, price }, rowId, rowNumber }) => {
+export const Place = ({ reservePlace, occupyPlace, setEmptyPlace, place: { _id, skip, placeNumber, isReserved, isOccupied, type, price }, rowId, rowNumber }) => {
 
     const placeClasses = () => {
         let credentials = '';
@@ -27,14 +27,24 @@ const Place = ({ reservePlace, occupyPlace, setEmptyPlace, place: { _id, skip, p
         }
     }
 
+    const getPlaceSkip = () => {
+        while (skip > 0) {
+            skip--;
+            return <span className='place-body' />
+        }
+    }
+
     return (
         <Fragment>
-            <span className={`place-body ${placeClasses()}`} onClick={e => onClick(e)} id={_id}>
-                {placeNumber}
-                {!isOccupied && !isReserved && <div className="tooltiptext">
-                    <div>{`price: ${price}`}</div>
-                    <div>{`type: ${type}`}</div>
-                </div>}
+            {skip !== 0 && getPlaceSkip()}
+            <span className='place-body' >
+                <span className={`place-unit ${placeClasses()}`} onClick={e => onClick(e)} id={_id}>
+                    {placeNumber}
+                    {!isOccupied && !isReserved && <div className="tooltiptext">
+                        <div>{`price: ${price}`}</div>
+                        <div>{`type: ${type}`}</div>
+                    </div>}
+                </span>
             </span>
         </Fragment>
     )

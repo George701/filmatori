@@ -1,21 +1,45 @@
-.brand-color{
-    color: #ffca28
-};
-
-.place-skip{
-    margin-left: 2rem;
+html, body{
+    height: 100%;
+    margin:0;
+    padding: 0;
 }
 
+/*Landing*/
+.landing-image {
+    background-image: url("/assets/img/background.jpg");
+    height: calc(100vh - 62px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(75%);
+  }
+
+.landing-text{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+    color: #FFF;
+}
+
+  .landing-head{
+    top: 20%;
+  }
+  
+  .landing-desc {
+    top: 50%;
+  }
+
 /*Misc*/  
-.place-body .tooltiptext {
+.place-unit .tooltiptext {
     visibility: hidden;
     width: 10vw;
     background-color: #333333;
     color: #ffffff;
     text-align: center;
     padding: .5rem 1rem;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 3.5rem;
+    left: 3rem;
     border-radius: 1.5rem 1.5rem 1.5rem .3rem;
 
     /* Position the tooltip */
@@ -23,11 +47,19 @@
     z-index: 1;
 }
 
-.place-body:hover .tooltiptext {
+.place-unit:hover .tooltiptext {
     visibility: visible;
 }
 
+.brand-color{
+    color: #ffca28
+};
+
 /*Hall*/
+.hall-container{
+    margin-top: 3rem;
+}
+
 .hall-header{
     text-align: center;
     margin-bottom: 5rem;
@@ -71,6 +103,8 @@
 
 .row-places{
     flex:8;
+    display: flex;
+    flex-direction: row;
 }
 
 /*Places*/
@@ -80,14 +114,19 @@
 }
 
 .place-sofa{
-    padding: .5rem 2rem;
+    padding: .5rem 1.5rem;
     margin: 0 .5rem;
 }
 
 .place-body{
+    flex: 1;
+    text-align: center;
     position: relative;
-    border-radius: 50%;
     color: #FFF;
+}
+
+.place-unit{
+    border-radius: 50%;
     cursor: pointer;
 }
 
@@ -103,7 +142,7 @@
     background-color: #333333;
 }
 
-.place-body:active{
+.place-unit:active{
     transition: all .1s ease-out;
     padding: 0;
 }
@@ -129,12 +168,16 @@
 */
 
 @media screen and (max-width: 1030px){
+    .landing-desc{
+        font-size: 1.2rem;
+    }
+
     .place-body .tooltiptext {
         width: 15vw;
         font-size: .7rem;
         padding: .2rem .6rem;
-        bottom: 1rem;
-        left: 1rem;
+        bottom: 4rem;
+        left: 3rem;
         border-radius: .5rem .5rem .5rem .1rem;
     }
 
@@ -152,7 +195,7 @@
     }
     
     .place-sofa{
-        padding: .2rem 1.2rem;
+        padding: .2rem 1rem;
         margin: 0 .2rem;
     }
 }

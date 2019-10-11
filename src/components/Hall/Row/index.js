@@ -17,7 +17,7 @@ const Row = ({ row: { _id, rowNumber, skip, places } }) => {
                 </div>
                 <span className='row-number'>{rowNumber}</span>
             </div>
-            {skip && <div className='row-main'></div>}
+            {skip && <div className='row-main' />}
         </Fragment>
     )
 }

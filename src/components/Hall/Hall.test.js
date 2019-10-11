@@ -4,19 +4,57 @@ import { Hall } from './index';
 
 describe('Hall', () => {
     const setHall = jest.fn();
-    const props = { cinema: { hall: { hallName: 'Test Hall', rows: [] }, loading: false }, setHall };
-    const hall = shallow(<Hall {...props} />);
+    const propsArrived = {
+        cinema: {
+            hall: {
+                hallName: 'Test Hall',
+                rows: [
+                    {
+                        _id: "RT01",
+                        rowNumber: 1,
+                        skip: false,
+                        places: []
+                    },
+                    {
+                        _id: "RT02",
+                        rowNumber: 2,
+                        skip: true,
+                        places: []
+                    },
+                ]
+            },
+            loading: false
+        },
+        setHall
+    };
+    const propsPending = { cinema: { hall: { hallName: '', rows: [] }, loading: true }, setHall };
+    const hall = shallow(<Hall {...propsArrived} />);
+    const hallLoading = shallow(<Hall {...propsPending} />);
 
-    it('renders properly', () => {
-        expect(hall).toMatchSnapshot();
+    describe('when waiting for props', () => {
+
+        it('renders properly', () => {
+            expect(hallLoading).toMatchSnapshot();
+        });
+
+        it('displays Loader', () => {
+            // issue with rendering components from outside...
+            expect(hallLoading.find('_default').exists()).toBe(true);
+        })
     });
 
-    // #TODO
+    describe('when props are received', () => {
 
-    // renders a hall name by class
-    it('displays the halls name from props', () => {
-        expect(hall.find('h1').text()).toEqual(props.cinema.hall.hallName)
+        it('renders properly', () => {
+            expect(hall).toMatchSnapshot();
+        });
+
+        it('displays the halls name from props', () => {
+            expect(hall.find('.hall-header').text()).toEqual(propsArrived.cinema.hall.hallName);
+        });
+
+        it('renders correct amount of Row components', () => {
+            expect(hall.find('Row').length).toEqual((propsArrived.cinema.hall.rows).length);
+        });
     });
-
-    // renders correct number of rows
 });

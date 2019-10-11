@@ -1,7 +1,9 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setHall } from '../../actions/cinema';
+
+import Loader from '../layout/Loader'
 import Row from './Row';
 
 export const Hall = ({ setHall, cinema: { hall: { hallName, rows }, loading } }) => {
@@ -9,9 +11,9 @@ export const Hall = ({ setHall, cinema: { hall: { hallName, rows }, loading } })
         setHall();
     }, [setHall]);
     return loading ?
-        <h1>Loading</h1>
+        <Loader />
         :
-        <Fragment>
+        <div className='hall-container'>
             <h1 className='hall-header'>{hallName}</h1>
             <div className='hall-main'>
                 <div className='hall-screen'>Screen</div>
@@ -21,7 +23,7 @@ export const Hall = ({ setHall, cinema: { hall: { hallName, rows }, loading } })
                     ))}
                 </div>
             </div>
-        </Fragment>
+        </div>
 };
 
 Hall.propTypes = {

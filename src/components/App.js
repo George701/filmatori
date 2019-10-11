@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -12,15 +12,11 @@ const App = () => {
     return (
         <Provider store={store}>
             <Router>
-                <Fragment>
-                    <AppNav />
+                <AppNav />
+                <Switch>
                     <Route exact path="/" component={Landing} />
-                    <div className="container">
-                        <Switch>
-                            <Route exact path='/hall' component={Hall} />
-                        </Switch>
-                    </div>
-                </Fragment>
+                    <Route exact path='/hall' component={Hall} />
+                </Switch>
             </Router>
         </Provider>
     )
