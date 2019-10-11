@@ -38,8 +38,8 @@ html, body{
     color: #ffffff;
     text-align: center;
     padding: .5rem 1rem;
-    bottom: 3.5rem;
-    left: 3rem;
+    bottom: 5rem;
+    left: 3.5rem;
     border-radius: 1.5rem 1.5rem 1.5rem .3rem;
 
     /* Position the tooltip */
@@ -53,7 +53,7 @@ html, body{
 
 .brand-color{
     color: #ffca28
-};
+}
 
 /*Hall*/
 .hall-container{
@@ -176,8 +176,8 @@ html, body{
         width: 15vw;
         font-size: .7rem;
         padding: .2rem .6rem;
-        bottom: 4rem;
-        left: 3rem;
+        bottom: 5rem;
+        left: 3.5rem;
         border-radius: .5rem .5rem .5rem .1rem;
     }
 

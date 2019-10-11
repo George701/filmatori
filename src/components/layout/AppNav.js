@@ -25,9 +25,7 @@ const AppNav = () => {
             <Container>
                 <NavbarBrand href="/">
                     <h4 className="brand-color">
-                        <Logo />
-                        {' '}
-                        FILMATORI
+                        FILMATORI{' '}<Logo />{' '}COM
                         </h4>
                 </NavbarBrand>
                 <NavbarToggler onClick={() => toggle()} />
