@@ -73,7 +73,7 @@ html, body{
 
 .hall-screen{
     border-top: .2rem solid #999999;
-    border-radius: 50%;
+    border-radius: 20%;
     color: #999999;
     text-align: center;
     height: 10vh;
@@ -109,11 +109,15 @@ html, body{
 
 /*Places*/
 .place-chair{
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
     padding: .5rem 1rem;
     margin: 0 .5rem;
 }
 
 .place-sofa{
+    border-radius: 5px;
     padding: .5rem 1.5rem;
     margin: 0 .5rem;
 }
@@ -126,7 +130,6 @@ html, body{
 }
 
 .place-unit{
-    border-radius: 50%;
     cursor: pointer;
 }
 
@@ -189,7 +192,13 @@ html, body{
         padding: 1rem .5rem .5rem .5rem;
     }
 
+    .place-unit{
+        font-size: .8rem;
+    }
+
     .place-chair{
+        height: .8rem;
+        width: .8rem;
         padding: .2rem .6rem;
         margin: 0 .2rem;
     }
