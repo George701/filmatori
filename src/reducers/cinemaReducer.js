@@ -1,4 +1,4 @@
-import { LOAD_HALL, RESERVE_PLACE, OCCUPY_PLACE, SET_PLACE_EMPTY } from '../actions/constants';
+import { LOAD_HALL, RESERVE_PLACE, OCCUPY_PLACES, SET_PLACE_EMPTY } from '../actions/constants';
 
 const initialState = {
     loading: true,
@@ -47,30 +47,32 @@ export default (state = initialState, action) => {
                     )
                 }
             };
-        case OCCUPY_PLACE:
+        case OCCUPY_PLACES:
+            // console.log(payload[0]);
+            hall.rows.map(row =>
+                payload.map(unit =>
+                    row._id === unit.rowId
+                    &&
+                    row.places.map(place =>
+                        place._id === unit.placeId
+                        &&
+                        (
+                            place.isReserved = false,
+                            place.isOccupied = true
+                        )
+                    )
+                ));
+            // const result = hall.rows.map(row =>
+            //     payload.map(unit =>
+            //         console.log(row._id === unit.rowId)
+            //     )
+            // );
+            console.log(hall);
             return {
                 ...state,
                 loading: false,
                 hall: {
-                    ...hall,
-                    rows: hall.rows.map(row =>
-                        row._id === payload.r_id
-                            ?
-                            {
-                                ...row,
-                                places: row.places.map(place =>
-                                    place._id === payload.p_id
-                                        ?
-                                        {
-                                            ...place,
-                                            isReserved: false,
-                                            isOccupied: true
-                                        }
-                                        : { ...place }
-                                )
-                            }
-                            : { ...row }
-                    )
+                    ...hall
                 }
             };
         case SET_PLACE_EMPTY:

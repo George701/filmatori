@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setHall } from '../../actions/cinema';
 
 import Loader from '../layout/Loader'
+import OrderInfo from '../layout/OrderInfo'
 import Row from './Row';
 
 export const Hall = ({ setHall, cinema: { hall: { hallName, rows }, loading } }) => {
@@ -23,6 +24,7 @@ export const Hall = ({ setHall, cinema: { hall: { hallName, rows }, loading } })
                     ))}
                 </div>
             </div>
+            <OrderInfo />
         </div>
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 
 const Landing = () => {
     const [landingState] = useState({
@@ -9,10 +9,11 @@ const Landing = () => {
     const { title, desc } = landingState;
 
     return (
-        <div className='landing-image'>
+        <Fragment>
+            <div className='landing-image'></div>
             <h1 className="landing-text landing-head brand-color">{title}</h1>
             <h4 className="landing-text landing-desc">{desc}</h4>
-        </div>
+        </Fragment>
     )
 }
 

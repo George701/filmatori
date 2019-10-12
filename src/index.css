@@ -11,7 +11,8 @@ html, body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(75%);
+    /* filter: brightness(75%); */
+    filter: blur(.1rem) brightness(75%);
   }
 
 .landing-text{
@@ -23,7 +24,7 @@ html, body{
 }
 
   .landing-head{
-    top: 20%;
+    top: 30%;
   }
   
   .landing-desc {
@@ -38,8 +39,8 @@ html, body{
     color: #ffffff;
     text-align: center;
     padding: .5rem 1rem;
-    bottom: 5rem;
-    left: 3.5rem;
+    bottom: 2.5rem;
+    left: 5rem;
     border-radius: 1.5rem 1.5rem 1.5rem .3rem;
 
     /* Position the tooltip */
@@ -51,9 +52,14 @@ html, body{
     visibility: visible;
 }
 
-.brand-color{
-    color: #ffca28
+.tooltiptext:hover{
+    visibility: none;
 }
+
+.brand-color{
+    color: #ffca28;
+}
+
 
 /*Hall*/
 .hall-container{
@@ -69,6 +75,10 @@ html, body{
     width: 50vw;
     height: 60vh;
     margin: 0 auto;
+    user-select: none;
+    padding: 0 1rem;
+    border-right: .1rem solid #eeeeee;
+    border-left: .1rem solid #eeeeee;
 }
 
 .hall-screen{
@@ -92,6 +102,7 @@ html, body{
     flex: 1;
     display: flex;
     flex-direction: row;
+    padding: 3% 0;
 }
 
 .row-number{
@@ -164,11 +175,97 @@ html, body{
     transition: all 0.5s ease-out;
 }
 
+/*Order Info*/
+.order-block{
+    width: 50vw;
+    height: 10vh;
+    margin: 1.5rem auto 1rem auto;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    border-top: .1rem solid #eeeeee;
+}
+
+.order-unit{
+    flex: 1;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.order-unit-title{
+    font-weight: bold;
+}
+
+.order-info-num{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.order-places{
+    color: #1b5e20;
+}
+
+.order-price{
+    color: #b71c1c;
+}
+
+.order-btn-buy{
+    font-weight: bold;
+    padding: .5rem 1rem;
+    background: #ffca28;
+    color: #333333;
+    border: none;
+    border-radius: .5rem;
+}
+
+.btn-disabled{
+    padding: .5rem 1rem;
+    background: #ffca28;
+    color: #333333;
+    border: none;
+    border-radius: .5rem;
+    cursor: not-allowed!important;
+    filter: grayscale(80%);
+}
+
+.btn-disabled:hover{
+    transition: all .5s ease-out;
+    background: #333333;
+    color: #eeeeee;
+}
+
+.order-btn-buy:hover{
+    transition: all .3s ease-out;
+    background: #ffbf00;
+    color: #000000;
+}
+
+.order-btn-buy:active{
+    transition: all .3s ease-out;
+    background: #ffffff;
+    padding: 0;
+    color: #ffffff;
+    outline:0;
+}
+
+.order-btn-buy:focus { outline:0 !important; }
 /*
 ------------------------------------------
                 Portability
 ------------------------------------------
 */
+
+@media screen and (max-width: 1470px){
+    .place-body .tooltiptext {
+        bottom: 3.5rem;
+        left: 3.5rem;
+    }
+
+    .place-sofa{
+        padding: .4rem 1.2rem;
+        margin: 0 .4rem;
+    }
+}
 
 @media screen and (max-width: 1030px){
     .landing-desc{
@@ -179,8 +276,8 @@ html, body{
         width: 15vw;
         font-size: .7rem;
         padding: .2rem .6rem;
-        bottom: 5rem;
-        left: 3.5rem;
+        bottom: 3.3rem;
+        left: 3rem;
         border-radius: .5rem .5rem .5rem .1rem;
     }
 
@@ -206,5 +303,14 @@ html, body{
     .place-sofa{
         padding: .2rem 1rem;
         margin: 0 .2rem;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .order-block {
+        flex-direction: column;
+    }
+    .tooltiptext {
+        display: none;
     }
 }
