@@ -48,31 +48,19 @@ export default (state = initialState, action) => {
                 }
             };
         case OCCUPY_PLACES:
-            // console.log(payload[0]);
-            hall.rows.map(row =>
-                payload.map(unit =>
-                    row._id === unit.rowId
-                    &&
-                    row.places.map(place =>
-                        place._id === unit.placeId
-                        &&
-                        (
-                            place.isReserved = false,
-                            place.isOccupied = true
-                        )
-                    )
-                ));
-            // const result = hall.rows.map(row =>
-            //     payload.map(unit =>
-            //         console.log(row._id === unit.rowId)
-            //     )
-            // );
-            console.log(hall);
             return {
                 ...state,
                 loading: false,
                 hall: {
-                    ...hall
+                    ...hall,
+                    rows: hall.rows.map(row => ({
+                        ...row,
+                        places: row.places.map(place => ({
+                            ...place,
+                            isOccupied: place.isOccupied || place.isReserved,
+                            isReserved: false
+                        }))
+                    }))
                 }
             };
         case SET_PLACE_EMPTY:

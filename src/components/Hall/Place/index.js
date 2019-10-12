@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { reservePlace, setEmptyPlace } from '../../../actions/cinema';
 import { addPlaceToOrder, removePlaceFromOrder } from '../../../actions/order';
 
-export const Place = ({ reservePlace, addPlaceToOrder, setEmptyPlace, removePlaceFromOrder, place: { _id, skipLeft, skipRight, placeNumber, isReserved, isOccupied, type, price }, rowId, rowNumber }) => {
+export const Place = ({ placeId, reservePlace, addPlaceToOrder, setEmptyPlace, removePlaceFromOrder, place: { _id, skipLeft, skipRight, placeNumber, isReserved, isOccupied, type, price }, rowId, rowNumber }) => {
     // console.log('rerendering');
     const placeClasses = () => {
         let credentials = '';
@@ -56,6 +56,12 @@ Place.propTypes = {
     setEmptyPlace: PropTypes.func.isRequired,
     addPlaceToOrder: PropTypes.func.isRequired,
     removePlaceFromOrder: PropTypes.func.isRequired
-}
+};
 
-export default connect(null, { reservePlace, addPlaceToOrder, setEmptyPlace, removePlaceFromOrder })(Place)
+const mapStateToProps = (state, ownProps) => ({
+    place: state.cinema.hall
+        .rows.filter(row => row._id === ownProps.rowId)[0]
+        .places.filter(place => place._id === ownProps.placeId)[0]
+});
+
+export default connect(mapStateToProps, { reservePlace, addPlaceToOrder, setEmptyPlace, removePlaceFromOrder })(Place)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { cleanOrderList } from '../../actions/order';
@@ -6,9 +6,9 @@ import { occupyPlaces } from '../../actions/cinema';
 
 export const OrderInfo = ({ cleanOrderList, occupyPlaces, order: { totalPrice, orderPlaces } }) => {
 
-    const onClick = (arr) => {
-        occupyPlaces(arr);
-        cleanOrderList();
+    const onClick = () => {
+        parseFloat(totalPrice) !== 0 &&
+            occupyPlaces() && cleanOrderList()
     }
 
     return (
@@ -30,7 +30,7 @@ export const OrderInfo = ({ cleanOrderList, occupyPlaces, order: { totalPrice, o
                 </span>
             </div>
             <div className="order-unit">
-                <button className={parseFloat(totalPrice) === 0 ? 'btn-disabled' : 'order-btn-buy'} onClick={() => onClick(orderPlaces)}>
+                <button className={parseFloat(totalPrice) === 0 ? 'btn-disabled' : 'order-btn-buy'} onClick={() => onClick()}>
                     Buy
                 </button>
             </div>

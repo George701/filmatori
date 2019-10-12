@@ -226,12 +226,7 @@ html, body{
     border-radius: .5rem;
     cursor: not-allowed!important;
     filter: grayscale(80%);
-}
-
-.btn-disabled:hover{
-    transition: all .5s ease-out;
-    background: #333333;
-    color: #eeeeee;
+    outline:0;
 }
 
 .order-btn-buy:hover{

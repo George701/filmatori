@@ -41,16 +41,10 @@ export const reservePlace = (pl_id, row_id) => {
 };
 
 // buy seat
-export const occupyPlaces = (arr) => {
+export const occupyPlaces = () => {
     try {
-        // immitating request
-        const res = {
-            status: 200,
-            data: arr
-        };
         return ({
-            type: OCCUPY_PLACES,
-            payload: res.data
+            type: OCCUPY_PLACES
         });
     } catch (err) {
         console.error(err);
