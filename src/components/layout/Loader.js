@@ -3,5 +3,5 @@ import loader from './loader.gif'
 
 export default () =>
     <Fragment>
-        <img src={loader} alt="Loading..." />
+        <img src={loader} alt="Loading..." className='loader-center' />
     </Fragment>

@@ -1,5 +1,8 @@
 {
-    "hallName": "Hall One",
+    "hallName": "Hall Premium",
+    "city": "Alavieska",
+    "date": "2019-12-12T12:29:35.942+00:00",
+    "movie": "A Beautiful Day in the Neighborhood",
     "rows": [
         {
             "_id": "R01",

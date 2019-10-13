@@ -4,6 +4,9 @@ const initialState = {
     loading: true,
     hall: {
         hallName: '',
+        city: '',
+        movie: '',
+        date: '',
         rows: []
     }
 }
@@ -18,6 +21,9 @@ export default (state = initialState, action) => {
                 ...state,
                 hall: {
                     hallName: payload.hallName,
+                    city: payload.city,
+                    movie: payload.movie,
+                    date: payload.date,
                     rows: [...payload.rows]
                 },
                 loading: false

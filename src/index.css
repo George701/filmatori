@@ -1,4 +1,5 @@
 html, body{
+    font-family: 'Roboto', sans-serif;
     height: 100%;
     margin:0;
     padding: 0;
@@ -35,7 +36,7 @@ html, body{
 .place-unit .tooltiptext {
     visibility: hidden;
     width: 10vw;
-    background-color: #333333;
+    background-color: #5b0909;
     color: #ffffff;
     text-align: center;
     padding: .5rem 1rem;
@@ -57,18 +58,40 @@ html, body{
 }
 
 .brand-color{
-    color: #ffca28;
+    color: #ffd369;
+}
+
+.loader-center{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
 }
 
 
 /*Hall*/
 .hall-container{
     margin-top: 3rem;
+    perspective: 1500px;
 }
 
 .hall-header{
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
+}
+
+.hall-info{
+    display: flex;
+    flex-direction: row;
+    font-size: .7rem;
+    color: #999999;
+    width: 50vw;
+    margin: 0 auto 3rem auto;
+}
+
+.hall-info-unit{
+    flex:1;
+    text-align:center;
 }
 
 .hall-main{
@@ -77,13 +100,12 @@ html, body{
     margin: 0 auto;
     user-select: none;
     padding: 0 1rem;
-    border-right: .1rem solid #eeeeee;
-    border-left: .1rem solid #eeeeee;
+    transform: rotateX(25deg);
 }
 
 .hall-screen{
     border-top: .2rem solid #999999;
-    border-radius: 20%;
+    border-radius: 15%;
     color: #999999;
     text-align: center;
     height: 10vh;
@@ -108,8 +130,9 @@ html, body{
 .row-number{
     flex:1;
     font-weight: bold;
-    color: #999999;
+    color: #bbbbbb;
     text-align: center;
+    font-size: .75rem;
 }
 
 .row-places{
@@ -137,53 +160,46 @@ html, body{
     flex: 1;
     text-align: center;
     position: relative;
-    color: #FFF;
-}
-
-.place-unit{
-    cursor: pointer;
 }
 
 .place-empty{
-    background-color: #cccccc;
+    cursor: pointer;
+    background-color: #ffd369;
+    color: #000000;
 }
 
 .place-reserved{
-    background-color: #ffca28;
+    cursor: pointer;
+    background-color: #e26241;
+    color: #ffffff;
 }
 
 .place-sold{
-    background-color: #333333;
+    background-color: #940a37;
+    color: #ffffff;
 }
-
-.place-unit:active{
+.place-empty:active, .place-reserved:active{
     transition: all .1s ease-out;
-    padding: 0;
+    padding: .1rem .3rem;
 }
 
 .place-empty:hover{
     transition: all 0.5s ease-out;
-    background-color: #999999;
+    background-color: #f8bf3b;
 }
 
 .place-reserved:hover{
     transition: all 0.5s ease-out;
-    background-color: #ffae00;
-}
-
-.place-sold:hover{
-    transition: all 0.5s ease-out;
+    background-color: #ee461c;
 }
 
 /*Order Info*/
 .order-block{
     width: 50vw;
     height: 10vh;
-    margin: 1.5rem auto 1rem auto;
-    padding-top: 1rem;
+    margin: 1.5rem auto 0 auto;
     display: flex;
     flex-direction: row;
-    border-top: .1rem solid #eeeeee;
 }
 
 .order-unit{
@@ -202,17 +218,17 @@ html, body{
 }
 
 .order-places{
-    color: #1b5e20;
+    color: #940a37;
 }
 
 .order-price{
-    color: #b71c1c;
+    color: #e26241;
 }
 
 .order-btn-buy{
     font-weight: bold;
     padding: .5rem 1rem;
-    background: #ffca28;
+    background: #ffd369;
     color: #333333;
     border: none;
     border-radius: .5rem;
@@ -220,25 +236,27 @@ html, body{
 
 .btn-disabled{
     padding: .5rem 1rem;
-    background: #ffca28;
-    color: #333333;
+    background: #940a37;
+    color: #ffffff;
     border: none;
     border-radius: .5rem;
     cursor: not-allowed!important;
-    filter: grayscale(80%);
+    filter: grayscale(50%);
     outline:0;
 }
 
+.btn-disabled:focus { outline:0 !important; }
+
 .order-btn-buy:hover{
     transition: all .3s ease-out;
-    background: #ffbf00;
+    background: #fac13b;
     color: #000000;
 }
 
 .order-btn-buy:active{
     transition: all .3s ease-out;
-    background: #ffffff;
-    padding: 0;
+    background: #e26241;
+    padding: .1rem .5rem;
     color: #ffffff;
     outline:0;
 }

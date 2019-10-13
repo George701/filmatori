@@ -1,33 +1,31 @@
 import React from 'react';
 import { shallow, mount } from '../../../enzyme';
 import { Place } from './index';
+import { placeProps } from '../../../testData/values'
 
 describe('Place', () => {
 
     const reservePlace = jest.fn();
-    const occupyPlace = jest.fn();
+    const addPlaceToOrder = jest.fn();
     const setEmptyPlace = jest.fn();
+    const removePlaceFromOrder = jest.fn();
 
     const props = {
-        rowId: "RT01",
-        rowNumber: 1,
+        ...placeProps,
         reservePlace,
-        occupyPlace,
+        addPlaceToOrder,
         setEmptyPlace,
-        place: {
-            _id: "PT01",
-            placeNumber: 1,
-            isReserved: false,
-            isOccupied: false,
-            skip: 0,
-            type: "chair",
-            price: "10$"
-        }
+        removePlaceFromOrder
     };
+
     let place = shallow(<Place {...props} />);
 
     it('renders properly', () => {
         expect(place).toMatchSnapshot();
+    });
+
+    it('displays place and two empty spaces', () => {
+        expect(place.find('.place-body').length).toEqual(3);
     });
 
     it('displays a chair', () => {

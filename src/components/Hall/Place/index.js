@@ -5,7 +5,6 @@ import { reservePlace, setEmptyPlace } from '../../../actions/cinema';
 import { addPlaceToOrder, removePlaceFromOrder } from '../../../actions/order';
 
 export const Place = ({ placeId, reservePlace, addPlaceToOrder, setEmptyPlace, removePlaceFromOrder, place: { _id, skipLeft, skipRight, placeNumber, isReserved, isOccupied, type, price }, rowId, rowNumber }) => {
-    // console.log('rerendering');
     const placeClasses = () => {
         let credentials = '';
 

@@ -1,24 +1,11 @@
 import React from 'react';
 import { shallow } from '../../../enzyme';
 import Row from './index';
+import { rowProps } from '../../../testData/values'
 
 describe('Row', () => {
-    const props = {
-        row: {
-            _id: 'RT01',
-            rowNumber: 1,
-            skip: true,
-            places: [
-                {
-                    "_id": "PT09",
-                },
-                {
-                    "_id": "PT10",
-                },
-            ]
-        }
-    };
-    const row = shallow(<Row {...props} />);
+
+    const row = shallow(<Row {...rowProps} />);
 
     it('renders properly', () => {
         expect(row).toMatchSnapshot();
@@ -33,11 +20,11 @@ describe('Row', () => {
     });
 
     it('displays correct number of rows identifier', () => {
-        expect(parseInt(row.find('.row-number').at(0).text(), 10)).toEqual(props.row.rowNumber);
-        expect(parseInt(row.find('.row-number').at(1).text(), 10)).toEqual(props.row.rowNumber);
+        expect(parseInt(row.find('.row-number').at(0).text(), 10)).toEqual(rowProps.row.rowNumber);
+        expect(parseInt(row.find('.row-number').at(1).text(), 10)).toEqual(rowProps.row.rowNumber);
     });
 
     it('displays correct number of generated places', () => {
-        expect(row.find('Connect(Place)').length).toEqual((props.row.places).length)
+        expect(row.find('Connect(Place)').length).toEqual((rowProps.row.places).length)
     });
 });

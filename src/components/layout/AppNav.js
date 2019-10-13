@@ -37,7 +37,7 @@ const AppNav = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href='https://github.com/George701/filmatori'>
+                            <NavLink href='https://github.com/George701/filmatori' target="_blank" rel="noopener noreferrer">
                                 Repo
                             </NavLink>
                         </NavItem>

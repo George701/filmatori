@@ -1,5 +1,5 @@
-import { setHall, reservePlace, occupyPlace, setEmptyPlace } from './cinema';
-import { LOAD_HALL, RESERVE_PLACE, OCCUPY_PLACE, SET_PLACE_EMPTY } from './constants';
+import { setHall, reservePlace, occupyPlaces, setEmptyPlace } from './cinema';
+import { LOAD_HALL, RESERVE_PLACE, OCCUPY_PLACES, SET_PLACE_EMPTY } from './constants';
 
 import hall from '../api/hall.json';
 
@@ -24,9 +24,8 @@ it('creates an action to reserve specific place', () => {
 });
 
 it('creates an action to occupy specific place', () => {
-
-    const expectedAction = { type: OCCUPY_PLACE, payload: data };
-    expect(occupyPlace(data.p_id, data.r_id)).toEqual(expectedAction);
+    const expectedAction = { type: OCCUPY_PLACES };
+    expect(occupyPlaces()).toEqual(expectedAction);
 });
 
 it('creates an action to set free specific place', () => {
